@@ -19,9 +19,16 @@ prod.SetNome("Borsa");
 prod.SetDescrizione("Borsa di vera pelle");
 prod.SetPrezzo(80.30);
 
-prod.SetIva(10.20);
+prod.SetIva(20);
 prod.Stampa();
 
+Prodotto prod2 = new Prodotto();
+prod2.SetNome("Occhiali");
+prod2.SetDescrizione("Da vista");
+prod2.SetPrezzo(330.99);
+
+prod2.SetIva(18);
+prod2.Stampa();
 
 public class Prodotto
 {
@@ -76,14 +83,17 @@ public class Prodotto
     }
     public void SetIva(double iva)
     {
-        this.iva = iva + prezzo;
+        this.iva = iva;
      }
 
     public string fullName()
     {
         return this.codice + this.nome;
     }
-
+    public double GetPrezzoConIva()
+    {
+        return  (prezzo / 100 * iva) + prezzo;
+    }
     public string codiceFinito()
     {
         string codice = Convert.ToString(this.codice);
@@ -103,6 +113,8 @@ public class Prodotto
         Console.WriteLine("descrizione:" + GetDescrizione());
         Console.WriteLine("prezzo:" + GetPrezzo());
         Console.WriteLine("iva:" + GetIva());
+        Console.WriteLine("iva+prezzo:" + GetPrezzoConIva());
+
         Console.WriteLine("nome concatenato:" + fullName());
         Console.WriteLine("codice pad left:" + codiceFinito());
 
