@@ -11,4 +11,88 @@
 //Il prodotto esponga sia un metodo per avere il prezzo base che uno per avere il prezzo comprensivo di iva
 //Il prodotto esponga un metodo per avere il nome esteso, ottenuto concatenando codice + nome
 //Nella vostro programma principale, testate tutte le funzionalità della classe Prodotto.
-//BONUS: create un metodo che restituisca il codice con un pad left di 0 per arrivare a 8 caratteri (ad esempio codice 91 diventa 00000091, mentre codice 123445567 resta come è)
+//BONUS: create un metodo che restituisca il codice con un pad left di 0 per arrivare a 8 caratteri (ad esempio codice 91 diventa 00000091,
+//mentre codice 123445567 resta come è)
+
+Prodotto prod = new Prodotto();
+prod.SetNome("Borsa");
+prod.SetDescrizione("Borsa di vera pelle");
+prod.SetPrezzo(80.30);
+
+prod.SetIva(10.20);
+prod.Stampa();
+
+
+public class Prodotto
+{
+    private int codice;
+    private string nome;
+    private string descrizione;
+    private double prezzo;
+    private double iva;
+
+    public Prodotto()
+    {
+        codice = new Random().Next(1, 99999999);
+        if(codece )
+    }
+
+    public int GetCodice()
+    {
+        return codice;
+    }
+
+    public string GetNome()
+    {
+        return nome;
+    }
+
+    public string SetNome(string nome)
+    {
+        return this.nome = nome;
+    }
+
+    public string GetDescrizione()
+    {
+        return descrizione;
+    }
+
+    public string SetDescrizione(string descrizione)
+    {
+        return this.descrizione=descrizione;
+    }
+    public double GetPrezzo()
+    {
+        return prezzo;
+    }
+
+    public double SetPrezzo(double prezzo)
+    {
+        return this.prezzo = prezzo;
+    }
+    public double GetIva()
+    {
+        return iva;
+    }
+    public void SetIva(double iva)
+    {
+        this.iva = iva + prezzo;
+     }
+
+    public string fullName()
+    {
+        return this.codice + this.nome;
+    }
+
+    public void Stampa()
+    {
+
+        Console.WriteLine("nome:" + nome );
+        Console.WriteLine("descrizione:" + descrizione );
+        Console.WriteLine("prezzo:" + GetPrezzo());
+        Console.WriteLine("iva:" + GetIva());
+        Console.WriteLine("nome concatenato:" + fullName());
+
+    }
+}
+
