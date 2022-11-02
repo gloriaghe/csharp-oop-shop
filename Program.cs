@@ -33,8 +33,8 @@ public class Prodotto
 
     public Prodotto()
     {
-        codice = new Random().Next(1, 99999999);
-        if(codece )
+        codice = new Random().Next(1, 999);
+        
     }
 
     public int GetCodice()
@@ -59,7 +59,7 @@ public class Prodotto
 
     public string SetDescrizione(string descrizione)
     {
-        return this.descrizione=descrizione;
+        return this.descrizione  = descrizione;
     }
     public double GetPrezzo()
     {
@@ -84,14 +84,27 @@ public class Prodotto
         return this.codice + this.nome;
     }
 
+    public string codiceFinito()
+    {
+        string codice = Convert.ToString(this.codice);
+        for(int i = 0; codice.Length <8; i++)
+        {
+            codice = '0' + codice;
+        }
+        
+        return codice;
+    }
+
     public void Stampa()
     {
 
         Console.WriteLine("nome:" + nome );
-        Console.WriteLine("descrizione:" + descrizione );
+        Console.WriteLine("codice:" + codice);
+        Console.WriteLine("descrizione:" + descrizione);
         Console.WriteLine("prezzo:" + GetPrezzo());
         Console.WriteLine("iva:" + GetIva());
         Console.WriteLine("nome concatenato:" + fullName());
+        Console.WriteLine("codice pad left:" + codiceFinito());
 
     }
 }
