@@ -98,9 +98,9 @@ public class Prodotto
     public void Stampa()
     {
 
-        Console.WriteLine("nome:" + nome );
-        Console.WriteLine("codice:" + codice);
-        Console.WriteLine("descrizione:" + descrizione);
+        Console.WriteLine("nome:" + GetNome() );
+        Console.WriteLine("codice:" + GetCodice());
+        Console.WriteLine("descrizione:" + GetDescrizione());
         Console.WriteLine("prezzo:" + GetPrezzo());
         Console.WriteLine("iva:" + GetIva());
         Console.WriteLine("nome concatenato:" + fullName());
