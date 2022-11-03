@@ -37,73 +37,40 @@ public class Prodotto
     public string Descrizione { get; set; }
     public double Prezzo { get; set; }
     public double Iva { get; set; }
+    public string fullName
+    {
+        get
+            {
 
+            return Codice + Nome;
+        }
+    }
+    public double PrezzoConIva
+    {
+        get{
+
+            return (Prezzo / 100 * Iva) + Prezzo;
+        }
+    }
+    public string codiceFinito
+    {
+        get
+        {
+            string codice = Convert.ToString(Codice);
+            for (int i = 0; codice.Length < 8; i++)
+            {
+                codice = '0' + codice;
+            }
+
+            return codice;
+        }
+    }
     public Prodotto()
     {
         Codice = new Random().Next(1, 999);
         
     }
 
-    //public int GetCodice()
-    //{
-    //    return codice;
-    //}
-
-    //public string GetNome()
-    //{
-    //    return nome;
-    //}
-
-    //public string SetNome(string nome)
-    //{
-    //    return this.nome = nome;
-    //}
-
-    //public string GetDescrizione()
-    //{
-    //    return descrizione;
-    //}
-
-    //public string SetDescrizione(string descrizione)
-    //{
-    //    return this.descrizione  = descrizione;
-    //}
-    //public double GetPrezzo()
-    //{
-    //    return prezzo;
-    //}
-
-    //public double SetPrezzo(double prezzo)
-    //{
-    //    return this.prezzo = prezzo;
-    //}
-    //public double GetIva()
-    //{
-    //    return iva;
-    //}
-    //public void SetIva(double iva)
-    //{
-    //    this.iva = iva;
-    // }
-
-    public string fullName()
-    {
-        return Codice + Nome;
-    }
-    public double GetPrezzoConIva()
-    {
-        return  (Prezzo / 100 * Iva) + Prezzo;
-    }
-    public string codiceFinito()
-    {
-        string codice = Convert.ToString(Codice);
-        for(int i = 0; codice.Length <8; i++)
-        {
-            codice = '0' + codice;
-        }
-        
-        return codice;
-    }
 
     public void Stampa()
     {
@@ -113,10 +80,10 @@ public class Prodotto
         Console.WriteLine("descrizione:" + Descrizione);
         Console.WriteLine("prezzo:" + Prezzo);
         Console.WriteLine("iva:" + Iva);
-        Console.WriteLine("iva+prezzo:" + GetPrezzoConIva());
+        Console.WriteLine("iva+prezzo:" + PrezzoConIva);
 
-        Console.WriteLine("nome concatenato:" + fullName());
-        Console.WriteLine("codice pad left:" + codiceFinito());
+        Console.WriteLine("nome concatenato:" + fullName);
+        Console.WriteLine("codice pad left:" + codiceFinito);
 
     }
 }
