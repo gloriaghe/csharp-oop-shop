@@ -15,88 +15,88 @@
 //mentre codice 123445567 resta come è)
 
 Prodotto prod = new Prodotto();
-prod.SetNome("Borsa");
-prod.SetDescrizione("Borsa di vera pelle");
-prod.SetPrezzo(80.30);
+prod.Nome = "Borsa";
+prod.Descrizione = "Borsa di vera pelle";
+prod.Prezzo = 80.30;
 
-prod.SetIva(20);
+prod.Iva = 22;
 prod.Stampa();
 
 Prodotto prod2 = new Prodotto();
-prod2.SetNome("Occhiali");
-prod2.SetDescrizione("Da vista");
-prod2.SetPrezzo(330.99);
+prod2.Nome = "Occhiali";
+prod2.Descrizione = "Da vista";
+prod2.Prezzo = 330.99;
 
-prod2.SetIva(18);
+prod2.Iva = 18;
 prod2.Stampa();
 
 public class Prodotto
 {
-    private int codice;
-    private string nome;
-    private string descrizione;
-    private double prezzo;
-    private double iva;
+    public int Codice { get; }
+    public string Nome { get; set; }
+    public string Descrizione { get; set; }
+    public double Prezzo { get; set; }
+    public double Iva { get; set; }
 
     public Prodotto()
     {
-        codice = new Random().Next(1, 999);
+        Codice = new Random().Next(1, 999);
         
     }
 
-    public int GetCodice()
-    {
-        return codice;
-    }
+    //public int GetCodice()
+    //{
+    //    return codice;
+    //}
 
-    public string GetNome()
-    {
-        return nome;
-    }
+    //public string GetNome()
+    //{
+    //    return nome;
+    //}
 
-    public string SetNome(string nome)
-    {
-        return this.nome = nome;
-    }
+    //public string SetNome(string nome)
+    //{
+    //    return this.nome = nome;
+    //}
 
-    public string GetDescrizione()
-    {
-        return descrizione;
-    }
+    //public string GetDescrizione()
+    //{
+    //    return descrizione;
+    //}
 
-    public string SetDescrizione(string descrizione)
-    {
-        return this.descrizione  = descrizione;
-    }
-    public double GetPrezzo()
-    {
-        return prezzo;
-    }
+    //public string SetDescrizione(string descrizione)
+    //{
+    //    return this.descrizione  = descrizione;
+    //}
+    //public double GetPrezzo()
+    //{
+    //    return prezzo;
+    //}
 
-    public double SetPrezzo(double prezzo)
-    {
-        return this.prezzo = prezzo;
-    }
-    public double GetIva()
-    {
-        return iva;
-    }
-    public void SetIva(double iva)
-    {
-        this.iva = iva;
-     }
+    //public double SetPrezzo(double prezzo)
+    //{
+    //    return this.prezzo = prezzo;
+    //}
+    //public double GetIva()
+    //{
+    //    return iva;
+    //}
+    //public void SetIva(double iva)
+    //{
+    //    this.iva = iva;
+    // }
 
     public string fullName()
     {
-        return this.codice + this.nome;
+        return Codice + Nome;
     }
     public double GetPrezzoConIva()
     {
-        return  (prezzo / 100 * iva) + prezzo;
+        return  (Prezzo / 100 * Iva) + Prezzo;
     }
     public string codiceFinito()
     {
-        string codice = Convert.ToString(this.codice);
+        string codice = Convert.ToString(Codice);
         for(int i = 0; codice.Length <8; i++)
         {
             codice = '0' + codice;
@@ -108,11 +108,11 @@ public class Prodotto
     public void Stampa()
     {
 
-        Console.WriteLine("nome:" + GetNome() );
-        Console.WriteLine("codice:" + GetCodice());
-        Console.WriteLine("descrizione:" + GetDescrizione());
-        Console.WriteLine("prezzo:" + GetPrezzo());
-        Console.WriteLine("iva:" + GetIva());
+        Console.WriteLine("nome:" + Nome );
+        Console.WriteLine("codice:" + Codice);
+        Console.WriteLine("descrizione:" + Descrizione);
+        Console.WriteLine("prezzo:" + Prezzo);
+        Console.WriteLine("iva:" + Iva);
         Console.WriteLine("iva+prezzo:" + GetPrezzoConIva());
 
         Console.WriteLine("nome concatenato:" + fullName());
